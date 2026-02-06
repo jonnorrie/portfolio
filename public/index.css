@@ -1,0 +1,24 @@
+header {
+  background-color: beige;
+  justify-items: center;
+}
+
+.link {
+  display: inline-block;
+  padding: 10px
+}
+
+form {
+
+  
+}
+
+.list {
+  display: inline-block;
+  justify-items: center;
+  padding: 25px
+}
+
+.lists {
+  text-align: center;
+}

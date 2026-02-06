@@ -4,40 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jonathon Norrie</title>
-  <script src="index.js"></script>
+  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <header>
     <h1>Jonathon Norrie</h1>
-    <div> <!--links-->
-      <div>
-        <a href="https://github.com/jonnorrie">Github</a>
+    <div class="links"> <!--links-->
+      <div class="link">
+        <a href="http://jnorrie.com">Home</a>
       </div>
-      <div>
+      <div class="link">
+        <a href="https://github.com/jonnorrie">My Github</a>
+      </div>
+      <div class="link">
         <a href="https://launchschool.com/">Launch School</a>
+      </div>
+      <div class="link">
+        <a href="about-me.html">About Me</a>
       </div>
     </div>
   </header>
   <main>
-    <div class="list"> <!--postgres list-->
-      <p>This is my PostgreSQL list:</p>
-      <form>
-        <label>Add to my PostgreSQL list:
-        <input>
-        <input type="submit">
-      </form>
-      <ul id="postgres_list">
-      </ul>
-    </div>
-    <div class="list"> <!--mongodb list-->
-      <p>This is my MongoDB list:</p>
-      <form>
-        <label>Add to my MongoDB list:
+    <div class="lists">
+      <div class="list"> <!--postgres list-->
+        <p>This is my PostgreSQL list:</p>
+        <form>
+          <label>Add to my PostgreSQL list:
           <input>
-          <input type="submit">
-      </form>
-      <ul id="mongo_db_list">
-      </ul>
+          <input type="submit" class="submit">
+        </form>
+        <ul id="postgres_list">
+        </ul>
+      </div>
+      <div class="list"> <!--mongodb list-->
+        <p>This is my MongoDB list:</p>
+        <form>
+          <label>Add to my MongoDB list:
+            <input>
+            <input type="submit" class="submit">
+        </form>
+        <ul id="mongo_db_list">
+        </ul>
+      </div>
     </div>
   </main>
   <footer>
