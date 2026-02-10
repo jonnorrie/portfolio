@@ -1,7 +1,7 @@
 let lists_div = document.querySelector('.lists')
 
 async function loadList() {
-  let response = await fetch('http://localhost:3000/items')
+  let response = await fetch('http://jnorrie.com/items')
   let items = await response.json();
   console.log(items)
 
