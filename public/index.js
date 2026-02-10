@@ -3,6 +3,7 @@ let lists_div = document.querySelector('.lists')
 async function loadList() {
   let response = await fetch('http://localhost:3000/items')
   let items = await response.json();
+  console.log(items)
 
   items.forEach(item => {
     let li = document.createElement("li")
@@ -19,7 +20,7 @@ async function loadList() {
 
 loadList()
 
-lists_div.addEventListener('click', event => {
+lists_div.addEventListener('submit', event => {
 
   if (event.target.tagName === 'INPUT') {
     event.preventDefault()
