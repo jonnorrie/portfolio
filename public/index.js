@@ -1,36 +1,54 @@
 let lists_div = document.querySelector('.lists')
 
 async function loadList() {
-  let response = await fetch('https://jnorrie.com/items')
+  let response = await fetch('http://localhost:3000/items')
   let items = await response.json();
-  console.log(items)
 
   items.forEach(item => {
     let li = document.createElement("li")
     let p = document.createElement("p")
 
     li.appendChild(p)
-    p.textContent = `${item.name}`
+    p.textContent = `${item.title}`
     lists_div.children[0].children[1].appendChild(li)
-    //console.log(item.name)
   })
-
-  //console.log(items[0].name)
 }
 
-loadList()
+async function submitNewItem(userinput){
+  let response = await fetch('http://localhost:3000/additem', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      newItem: userinput
+    })
+  })
+}
 
-lists_div.addEventListener('submit', event => {
+function clearList(){
+  lists_div.children[0].children[1].innerHTML = '' // remove all items from the list
+}
 
-  if (event.target.tagName === 'INPUT') {
+lists_div.addEventListener('click', async event => {
+  let inputText = event.target.parentNode.children[0].value
+
+  if(event.target.id === "postgres_submit_button") {
     event.preventDefault()
 
-    // make request to local postgres database for all items
-    //getFromPostgres()
-
-    // populate the list with retrieved items
-    //loadList()
-
-    console.log(`${event.target.parentNode.parentNode.id} submit button clicked`)
+    if (inputText.length < 1){
+      alert("Your entry must not be empty")
+    } else {
+      await submitNewItem(inputText) // submit new text
+  
+      clearList() // clear the list
+      loadList() // reload the list
+      event.target.parentNode.children[0].value = ""
+    }
+  } 
+  else if (event.target.id === "mongodb_submit_button") {
+    event.preventDefault()
   }
 })
+
+loadList()

@@ -6,6 +6,7 @@ const db = require('./db')   //  import database helper
 const app = express();
 const PORT = 3000;
 
+app.use(express.json())  // Parse JSON request bodies
 app.use(express.static(path.join(__dirname, "public")))  // if the browser asks for a file, look in this directory
 
 app.get('/', (req, res) => { // load index.html when path is /
@@ -15,7 +16,7 @@ app.get('/', (req, res) => { // load index.html when path is /
 // loads list of items from db
 app.get('/items', async (req, res) => {
   try {
-    const result = await db.query('SELECT * FROM users')
+    const result = await db.query('SELECT * FROM items')
     res.json(result.rows)
   } catch (error) {
     console.error('Database error:', error)
@@ -23,6 +24,18 @@ app.get('/items', async (req, res) => {
   }
 })
 
+// submits new item to database list
+app.post('/additem', async (req, res) => {
+  const {newItem} = req.body
+
+   try {
+    const result = await db.query('INSERT INTO items (title) VALUES ($1) RETURNING *', [newItem])
+    res.json(result.rows)
+  } catch (error) {
+    console.error('Database error:', error)
+    res.status(500).json({ error: error.message })
+  }
+})
 
 app.get('/path',  (req, res) => { // load index.html when path is /path
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
