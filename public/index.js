@@ -15,7 +15,7 @@ async function loadList() {
 }
 
 async function submitNewItem(userinput){
-  let response = await fetch('http://localhost:3000/additem', {
+  let response = await fetch('https://jnorrie.com/additem', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
