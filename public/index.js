@@ -1,7 +1,7 @@
 let lists_div = document.querySelector('.lists')
 
 async function loadList() {
-  let response = await fetch('https://jnorrie.com/items')
+  let response = await fetch('/items')
   let items = await response.json();
 
   items.forEach(item => {
@@ -15,7 +15,7 @@ async function loadList() {
 }
 
 async function submitNewItem(userinput){
-  let response = await fetch('https://jnorrie.com/additem', {
+  let response = await fetch('/additem', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ lists_div.addEventListener('click', async event => {
       alert("Your entry must not be empty")
     } else {
       await submitNewItem(inputText) // submit new text
-  
+
       clearList() // clear the list
       loadList() // reload the list
       event.target.parentNode.children[0].value = ""
