@@ -72,6 +72,58 @@
   height: 200px;
 }
 
+.about-page {
+  padding: 80px 32px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-content {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.about-photo {
+  flex-shrink: 0;
+  width: 260px;
+  height: 300px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.about-text {
+  flex: 1;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.projects-page {
+  padding: 80px 32px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.project-box {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  height: 220px;
+}
+
 .rotating-title {
   opacity: 0;
   transition: opacity 0.4s ease;
