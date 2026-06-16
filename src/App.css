@@ -1,14 +1,17 @@
 .banner {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   padding: 16px 32px;
-  background: var(--accent-bg, #1a1a2e);
+  background: color-mix(in srgb, var(--accent-bg) 70%, transparent);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border, #333);
   width: 100vw;
-  position: relative;
-  left: 50%;
-  margin-left: -50vw;
+  position: fixed;
+  top: 0;
+  left: 0;
   box-sizing: border-box;
+  z-index: 100;
 }
 
 .banner-links {
@@ -29,7 +32,57 @@
 }
 
 .hero-name {
+  flex: 1;
   display: flex;
+  flex-direction: column;
+  padding-top: 56px;
+}
+
+.hero-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-top: 48px;
+  align-items: center;
+}
+
+.expertise-section {
+  padding: 80px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+.expertise-heading {
+  font-size: 28px;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.expertise-box {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  height: 200px;
+}
+
+.rotating-title {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.rotating-title.visible {
+  opacity: 1;
+}
+
+.banner-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-h, #fff);
 }
