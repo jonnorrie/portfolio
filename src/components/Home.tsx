@@ -6,8 +6,8 @@ const titles = [
   'Front End Developer',
   'Back End Developer',
   'Problem Solver',
-  'Nerd',
   'Tech Tinkerer',
+  'Nerd',
 ]
 
 const Home = () => {
@@ -39,6 +39,10 @@ const Home = () => {
           <div className="expertise-box"></div>
           <div className="expertise-box"></div>
         </div>
+      </section>
+      <section className="featured-section">
+        <h2 className="featured-heading">Featured Project</h2>
+        <div className="featured-box"></div>
       </section>
     </>
   )
